@@ -80,6 +80,11 @@ RUN mkdir -p models/insightface/models/antelopev2 && \
     wget -q https://huggingface.co/DIAMONIK7777/antelopev2/resolve/main/glintr100.onnx && \
     wget -q https://huggingface.co/DIAMONIK7777/antelopev2/resolve/main/scrfd_10g_bnkps.onnx
 
+# Download PuLID Flux model
+RUN mkdir -p models/pulid && \
+    cd models/pulid && \
+    wget -q https://huggingface.co/guozinan/PuLID/resolve/main/pulid_flux_v0.9.1.safetensors
+
 # Go back to the root
 WORKDIR /
 
