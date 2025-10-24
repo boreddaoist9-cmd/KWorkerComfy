@@ -37,6 +37,10 @@ RUN apt-get update && apt-get install -y \
 # Clean up to reduce image size
 RUN apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
+# Install python3.12-dev for InsightFace compilation
+RUN apt-get update && apt-get install -y python3.12-dev && \
+    apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+
 # Install uv (latest) using official installer and create isolated venv
 RUN wget -qO- https://astral.sh/uv/install.sh | sh \
     && ln -s /root/.local/bin/uv /usr/local/bin/uv \
@@ -81,6 +85,9 @@ WORKDIR /
 
 # Install Python runtime dependencies for the handler
 RUN uv pip install runpod requests websocket-client
+
+# Install InsightFace
+RUN python -m pip install insightface
 
 # Add application code and scripts
 ADD src/start.sh handler.py test_input.json ./
