@@ -67,6 +67,15 @@ WORKDIR /comfyui
 # Support for the network volume
 ADD src/extra_model_paths.yaml ./
 
+# Download InsightFace antelopev2 models to ComfyUI models folder
+RUN mkdir -p models/insightface/models/antelopev2 && \
+    cd models/insightface/models/antelopev2 && \
+    wget -q https://huggingface.co/DIAMONIK7777/antelopev2/resolve/main/1k3d68.onnx && \
+    wget -q https://huggingface.co/DIAMONIK7777/antelopev2/resolve/main/2d106det.onnx && \
+    wget -q https://huggingface.co/DIAMONIK7777/antelopev2/resolve/main/genderage.onnx && \
+    wget -q https://huggingface.co/DIAMONIK7777/antelopev2/resolve/main/glintr100.onnx && \
+    wget -q https://huggingface.co/DIAMONIK7777/antelopev2/resolve/main/scrfd_10g_bnkps.onnx
+
 # Go back to the root
 WORKDIR /
 
