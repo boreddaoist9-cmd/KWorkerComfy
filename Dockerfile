@@ -79,23 +79,48 @@ ADD src/extra_model_paths.yaml ./
 # Install git custom nodes from snapshot
 RUN cd custom_nodes && \
     git clone https://github.com/WASasquatch/was-node-suite-comfyui && \
-    cd was-node-suite-comfyui && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd .. && \
+    cd was-node-suite-comfyui && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
+
+RUN cd custom_nodes && \
     git clone https://github.com/kijai/ComfyUI-KJNodes && \
-    cd ComfyUI-KJNodes && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd .. && \
+    cd ComfyUI-KJNodes && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
+
+RUN cd custom_nodes && \
     git clone https://github.com/cubiq/ComfyUI_essentials && \
-    cd ComfyUI_essentials && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd .. && \
+    cd ComfyUI_essentials && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
+
+RUN cd custom_nodes && \
     git clone https://github.com/1038lab/ComfyUI-RMBG && \
-    cd ComfyUI-RMBG && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd .. && \
+    cd ComfyUI-RMBG && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
+
+RUN cd custom_nodes && \
     git clone https://github.com/rgthree/rgthree-comfy && \
-    cd rgthree-comfy && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd .. && \
+    cd rgthree-comfy && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
+
+RUN cd custom_nodes && \
     git clone https://github.com/djbielejeski/a-person-mask-generator && \
-    cd a-person-mask-generator && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd .. && \
+    cd a-person-mask-generator && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
+
+RUN cd custom_nodes && \
     git clone https://github.com/tsogzark/ComfyUI-load-image-from-url && \
-    cd ComfyUI-load-image-from-url && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd .. && \
+    cd ComfyUI-load-image-from-url && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
+
+RUN cd custom_nodes && \
     git clone https://github.com/sipie800/ComfyUI-PuLID-Flux-Enhanced && \
-    cd ComfyUI-PuLID-Flux-Enhanced && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd .. && \
+    cd ComfyUI-PuLID-Flux-Enhanced && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
+
+RUN cd custom_nodes && \
     git clone https://github.com/Comfy-Org/ComfyUI-Manager && \
-    cd ComfyUI-Manager && if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi && cd ../..
+    cd ComfyUI-Manager && \
+    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || exit 1; fi
 
 # Download InsightFace antelopev2 models to ComfyUI models folder
 RUN mkdir -p models/insightface/models/antelopev2 && \
