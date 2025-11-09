@@ -136,6 +136,16 @@ RUN mkdir -p models/pulid && \
     cd models/pulid && \
     wget -q https://huggingface.co/guozinan/PuLID/resolve/main/pulid_flux_v0.9.1.safetensors
 
+# Download CLIP Vision model
+RUN mkdir -p models/clip_vision && \
+    cd models/clip_vision && \
+    wget -q https://huggingface.co/Comfy-Org/sigclip_vision_384/resolve/main/sigclip_vision_patch14_384.safetensors
+
+# Download FLUX Redux model
+RUN mkdir -p models/style_models && \
+    cd models/style_models && \
+    wget -q https://huggingface.co/second-state/FLUX.1-Redux-dev-GGUF/resolve/c7e36ea59a409eaa553b9744b53aa350099d5d51/flux1-redux-dev.safetensors
+
 # Go back to the root
 WORKDIR /
 
