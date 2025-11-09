@@ -169,11 +169,6 @@ RUN cd custom_nodes && \
     cd comfyui-art-venture && \
     if [ -f requirements.txt ]; then uv pip install -r requirements.txt || true; fi
 
-RUN cd custom_nodes && \
-    git clone https://github.com/Comfy-Org/ComfyUI-Manager && \
-    cd ComfyUI-Manager && \
-    if [ -f requirements.txt ]; then uv pip install -r requirements.txt || true; fi
-
 # Download InsightFace antelopev2 models to ComfyUI models folder
 RUN mkdir -p models/insightface/models/antelopev2 && \
     cd models/insightface/models/antelopev2 && \
